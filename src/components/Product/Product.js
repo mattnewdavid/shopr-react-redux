@@ -1,32 +1,35 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye } from "@fortawesome/free-solid-svg-icons";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { cartActions } from "../../store/cart-slice";
 import { productActions } from "../../store/product-slice";
 
 import "./Product.css";
 const Product = ({ name, id, imgURL, price }) => {
-  const dispatch = useDispatch()
- 
+  const dispatch = useDispatch();
 
   const addToCart = () => {
-    dispatch(cartActions.addToCart({
-      name,
-      id,
-      price,
-      imgURL
-    }))
-  }
+    dispatch(
+      cartActions.addToCart({
+        name,
+        id,
+        price,
+        imgURL,
+      })
+    );
+  };
   const openProduct = () => {
-    dispatch(productActions.showProductModal())
-    dispatch(productActions.showPrdouctItem({
-      name,
-      id,
-      price,
-      imgURL
-    }))
-  }
+    dispatch(productActions.showProductModal());
+    dispatch(
+      productActions.showPrdouctItem({
+        name,
+        id,
+        price,
+        imgURL,
+      })
+    );
+  };
   return (
     <div className="card">
       <div className="card-img">
@@ -38,7 +41,10 @@ const Product = ({ name, id, imgURL, price }) => {
         <p>$ {price}</p>
       </div>
       <div className="card-button">
-        <button onClick={addToCart} className='add-btn'> Add to Cart</button>
+        <button onClick={addToCart} className="add-btn">
+          {" "}
+          Add to Cart
+        </button>
         <button onClick={openProduct} className="view-btn">
           <FontAwesomeIcon icon={faEye} />
         </button>
