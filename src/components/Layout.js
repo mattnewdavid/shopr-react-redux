@@ -1,19 +1,21 @@
 import React from "react";
-import Header from "./Header";
-import Products from "./Products";
+import Header from "./Header/Header";
+import Products from "./Product/Products";
 import "./Layout.css";
+import CartItems from "./Cart/Cart";
+import { useSelector } from "react-redux";
 const Layout = () => {
-  let total = 100;
-
+  const showCart = useSelector(state => state.cart.showCart)
+ 
   return (
     <React.Fragment>
       <div className="layout">
         <Header />
-        <Products />
-        <div className="total-price">
-          <h3>Total: ${total}</h3>
-          <button className="orderBtn">Place Order</button>
-        </div>{" "}
+        <div className="main-container">
+          {!showCart && <Products />}
+          {showCart && <CartItems />}
+        </div>
+        
       </div>
     </React.Fragment>
   );

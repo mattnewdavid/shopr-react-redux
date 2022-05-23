@@ -1,0 +1,21 @@
+.header-nav {
+  /* position: fixed!important;
+  top: 0;
+  float: right;
+  left: 0;
+  width: 100vh; */
+  /* margin-bottom: 10px; */
+  position: -webkit-sticky;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  background-color: #fff;
+
+}
+.header-ul {
+  display: flex;
+  justify-content: flex-end;
+}
+/* .header-h2 {
+
+} */
